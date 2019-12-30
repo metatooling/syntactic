@@ -1,3 +1,5 @@
+"""Support for custom syntax."""
+
 import codecs
 import encodings
 import functools
@@ -15,6 +17,11 @@ MAGIC_PACKAGE_NAME = "__syntax__"
 
 
 def get_transformer_names(source: str) -> t.List[str]:
+    """Return the names of requested transformers.
+
+    Searches for ``from __syntax__ import ...``.
+
+    """
     module_names: t.List[str] = []
     for line in source.splitlines():
 
@@ -23,10 +30,6 @@ def get_transformer_names(source: str) -> t.List[str]:
         )
         if match:
             module_names.extend(match.groups())
-
-        else:
-
-            continue
 
     return module_names
 
@@ -48,6 +51,7 @@ def gather_transformers():
 
 
 def decode(b, errors="strict"):
+    """Decode the utf-8 input and transform it with the named transformers."""
     transformers = gather_transformers()
 
     source, length = utf_8.decode(b, errors)
@@ -63,11 +67,10 @@ class IncrementalDecoder(codecs.BufferedIncrementalDecoder):
     def _buffer_decode(self, input, errors, final):  # pragma: no cover
         if final:
             return decode(input, errors)
-        else:
-            return "", 0
+        return "", 0
 
 
-class StreamReader(utf_8.streamreader):
+class StreamReader(utf_8.streamreader):  # type: ignore
     """decode is deferred to support better error messages"""
 
     _stream = None
