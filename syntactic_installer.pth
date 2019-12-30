@@ -1,0 +1,1 @@
+import syntactic.app; syntactic.app.main()

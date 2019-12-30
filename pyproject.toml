@@ -5,10 +5,17 @@ description = ""
 authors = ["Metatooling <metatooling@cordaz.com>"]
 readme = "README.rst"
 
+packages = [
+{include = "syntactic", from ="src"},
+{include= "syntactic_installer.pth"},
+{include="__syntax__.py"},
+]
+
 [tool.poetry.dependencies]
 python = "^3.7"
 click = "7.0"
-attrs = "19.1.0"
+attrs = "^19.1.0"
+importlib_metadata = "^0"
 
 
 [tool.poetry.dev-dependencies]
@@ -44,15 +51,12 @@ docs = [
 ]
 
 
+
 [tool.poetry.scripts]
 syntactic = "syntactic.cli:cli"
 
-
-[build-system]
-requires = ["poetry>=0.12"]
-build-backend = "poetry.masonry.api"
-
-
+[tool.poetry.plugins."syntactic.transformers"]
+bangbang_means_hello = "syntactic.examples.hello:transform"
 
 [tool.towncrier]
 
@@ -101,3 +105,6 @@ exclude = '''
   | dist
 )/
 '''
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
