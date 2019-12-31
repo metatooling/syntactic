@@ -1,4 +1,11 @@
-"""An example module providing a transformer."""
+"""Some example transformers.
+
+.. warning::
+
+    This module's transformers are examples intended for inspiration. They are fragile and
+    not expected to be used in projects.
+
+"""
 
 
 # TODO Use a real parser.
