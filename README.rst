@@ -84,7 +84,9 @@ Unicode lambdas
 SQL template literals
 ------------------------
 
-Embedded sql: ::
+Embedded sql:
+
+.. code-block:: js
 
   from __syntax__ import sql_literals
 
