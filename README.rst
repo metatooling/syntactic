@@ -102,7 +102,7 @@ is equivalent to:
 Limitations
 ===============
 
-The example transformers are written in a fragile way. They are only intended as
+The example transformers are written in a fragile way. They are intended only as
 inspiration rather than production-ready transformers.
 
 
