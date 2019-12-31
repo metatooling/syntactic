@@ -11,7 +11,7 @@ import typing as t
 import importlib_metadata
 
 
-utf_8 = encodings.search_function("utf8")
+UTF8 = encodings.search_function("utf8")
 
 MAGIC_PACKAGE_NAME = "__syntax__"
 
@@ -50,11 +50,11 @@ def gather_transformers():
     return transformers
 
 
-def decode(b, errors="strict"):
+def decode(source_bytes: bytes, errors="strict"):
     """Decode the utf-8 input and transform it with the named transformers."""
     transformers = gather_transformers()
 
-    source, length = utf_8.decode(b, errors)
+    source, length = UTF8.decode(source_bytes, errors)
     transformer_names = get_transformer_names(source)
 
     for transformer_name in transformer_names:
@@ -66,13 +66,15 @@ def decode(b, errors="strict"):
 class IncrementalDecoder(codecs.BufferedIncrementalDecoder):
     """A buffered incremental decoder for custom syntax."""
 
-    def _buffer_decode(self, input, errors, final):  # pragma: no cover
+    def _buffer_decode(
+        self, input, errors, final
+    ):  # pylint: disable=bad-option-value,redefined-builtin
         if final:
             return decode(input, errors)
         return "", 0
 
 
-class StreamReader(utf_8.streamreader):  # type: ignore
+class StreamReader(UTF8.streamreader):  # type: ignore
     """decode is deferred to support better error messages"""
 
     _stream = None
@@ -80,6 +82,7 @@ class StreamReader(utf_8.streamreader):  # type: ignore
 
     @property
     def stream(self):
+        """Get the stream."""
         if not self._decoded:
             text, _ = decode(self._stream.read())
             self._stream = io.BytesIO(text.encode("UTF-8"))
@@ -88,21 +91,22 @@ class StreamReader(utf_8.streamreader):  # type: ignore
 
     @stream.setter
     def stream(self, stream):
+        """Set the stream."""
         self._stream = stream
         self._decoded = False
 
 
-codec_map = {
-    ci.name: ci
+CODEC_MAP = {
+    ci.name: ci  # pylint: disable=no-member
     for ci in [
-        codecs.CodecInfo(
+        codecs.CodecInfo(  # type:ignore
             name="syntactic",
-            encode=utf_8.encode,
+            encode=UTF8.encode,
             decode=decode,
-            incrementalencoder=utf_8.incrementalencoder,
+            incrementalencoder=UTF8.incrementalencoder,
             incrementaldecoder=IncrementalDecoder,
             streamreader=StreamReader,
-            streamwriter=utf_8.streamwriter,
+            streamwriter=UTF8.streamwriter,
         )
     ]
 }
@@ -110,4 +114,4 @@ codec_map = {
 
 def main():
     """Register the codec with Python."""
-    codecs.register(codec_map.get)
+    codecs.register(CODEC_MAP.get)

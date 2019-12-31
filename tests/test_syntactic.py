@@ -1,3 +1,5 @@
+"""Tests for syntactic."""
+
 import subprocess
 
 import pytest
@@ -6,6 +8,7 @@ import tests.helpers
 
 @pytest.mark.parametrize("filename", ["bangbang.py"])
 def test_bangbang(virtualenv, filename):
+    """The bangbang script turns !! into a print() call."""
     subprocess.check_call(
         [virtualenv.python, "-m", "pip", "install", str(tests.helpers.PROJECT_DIR)]
     )

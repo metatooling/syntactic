@@ -6,7 +6,7 @@ import syntactic.app
 
 
 @click.group()
-def cli(**kwargs):
+def cli(**kwargs):  # pylint: disable=unused-argument
     """Commands for custom syntax."""
 
 

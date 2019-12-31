@@ -107,6 +107,7 @@ exclude = '''
   | buck-out
   | build
   | dist
+  | examples
 )/
 '''
 [build-system]
