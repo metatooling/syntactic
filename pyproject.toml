@@ -60,7 +60,8 @@ cli = [
 syntactic = "syntactic.cli:cli"
 
 [tool.poetry.plugins."syntactic.transformers"]
-bangbang_means_hello = "syntactic.examples.hello:transform"
+bangbang_means_hello = "syntactic.examples:transform_bangbang"
+unicode_lambda = "syntactic.examples:transform_lambda"
 
 [tool.towncrier]
 

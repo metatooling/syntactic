@@ -6,8 +6,10 @@ import pytest
 import tests.helpers
 
 
-@pytest.mark.parametrize("filename", ["bangbang.py"])
-def test_bangbang(virtualenv, filename):
+@pytest.mark.parametrize(
+    "filename,expected", [("bangbang.py", "2\nhello\n4\n"), ("lambdas.py", "1\n")]
+)
+def test_bangbang(virtualenv, filename, expected):
     """The bangbang script turns !! into a print() call."""
     subprocess.check_call(
         [virtualenv.python, "-m", "pip", "install", str(tests.helpers.PROJECT_DIR)]
@@ -21,4 +23,4 @@ def test_bangbang(virtualenv, filename):
             ),
         ]
     ).decode()
-    assert output == "2\nhello\n4\n"
+    assert output == expected
