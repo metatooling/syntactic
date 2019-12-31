@@ -16,8 +16,8 @@ Overview
       - | |version| |wheel| |supported-versions| |supported-implementations|
         | |commits-since|
 
-.. |docs| image:: https://readthedocs.org/projects/python-syntactic/badge/?style=flat
-    :target: https://readthedocs.org/projects/python-syntactic
+.. |docs| image:: https://readthedocs.org/projects/syntactic/badge/?style=flat
+    :target: https://readthedocs.org/projects/syntactic
     :alt: Documentation Status
 
 
@@ -56,4 +56,4 @@ Custom syntax for Python.
 
 
 
-https://python-syntactic.readthedocs.io/
+https://syntactic.readthedocs.io/
