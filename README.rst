@@ -21,9 +21,9 @@ Overview
     :alt: Documentation Status
 
 
-.. |travis| image:: https://travis-ci.org/metatooling/syntactic.svg
+.. |travis| image:: https://travis-ci.com/metatooling/syntactic.svg
     :alt: Travis-CI Build Status
-    :target: https://travis-ci.org/metatooling/syntactic
+    :target: https://travis-ci.com/metatooling/syntactic
 
 .. |codecov| image:: https://codecov.io/github/metatooling/syntactic/coverage.svg
     :alt: Coverage Status
