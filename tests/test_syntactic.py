@@ -1,11 +1,21 @@
-from click.testing import CliRunner
+import subprocess
 
-from syntactic.cli import main
+import pytest
+import tests.helpers
 
 
-def test_main():
-    runner = CliRunner()
-    result = runner.invoke(main, [])
+@pytest.mark.parametrize("filename", ["bangbang.py"])
+def test_bangbang(virtualenv, filename):
+    subprocess.check_call(
+        [virtualenv.python, "-m", "pip", "install", str(tests.helpers.PROJECT_DIR)]
+    )
 
-    assert result.output == "()\n"
-    assert result.exit_code == 0
+    output = subprocess.check_output(
+        [
+            virtualenv.python,
+            str(
+                tests.helpers.PROJECT_DIR.joinpath("tests/examples/").joinpath(filename)
+            ),
+        ]
+    ).decode()
+    assert output == "2\nhello\n4\n"
