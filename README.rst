@@ -103,7 +103,8 @@ Limitations
 ===============
 
 The example transformers are written in a fragile way. They are intended only as
-inspiration rather than production-ready transformers.
+inspiration rather than production-ready transformers. If you want to make some
+production-ready ones, please open an issue to discuss.
 
 
 
