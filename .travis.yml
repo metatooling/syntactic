@@ -21,7 +21,8 @@ before_install:
   - uname -a
   - lsb_release -a
 install:
-  - pip install tox poetry
+  - pip install tox
+  - pip install poetry
   - virtualenv --version
   - easy_install --version
   - pip --version
