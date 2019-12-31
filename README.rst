@@ -16,16 +16,16 @@ Overview
       - | |version| |wheel| |supported-versions| |supported-implementations|
         | |commits-since|
 
-.. |docs| image:: https://readthedocs.org/projects/syntactic/badge/?style=flat
+.. |docs| image:: https://readthedocs.org/projects/syntactic/badge
     :target: https://readthedocs.org/projects/syntactic
     :alt: Documentation Status
 
 
-.. |travis| image:: https://travis-ci.org/metatooling/python-syntactic.svg?branch=master
+.. |travis| image:: https://travis-ci.org/metatooling/python-syntactic.svg
     :alt: Travis-CI Build Status
     :target: https://travis-ci.org/metatooling/python-syntactic
 
-.. |codecov| image:: https://codecov.io/github/metatooling/python-syntactic/coverage.svg?branch=master
+.. |codecov| image:: https://codecov.io/github/metatooling/python-syntactic/coverage.svg
     :alt: Coverage Status
     :target: https://codecov.io/github/metatooling/python-syntactic
 
