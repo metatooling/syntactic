@@ -2,6 +2,11 @@
 Installation
 ============
 
-At the command line::
+With pip::
 
     pip install syntactic
+
+
+With Poetry::
+
+   poetry add syntactic
