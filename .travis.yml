@@ -19,7 +19,7 @@ matrix:
           - TOXENV=doc
     - python: 'pypy3'
       env:
-        - TOXENV
+        - TOXENV=coverage
 
 before_install:
   - python --version
