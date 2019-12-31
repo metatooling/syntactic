@@ -114,6 +114,8 @@ Related work
 
 - MacroPy_
 - future-fstrings_
+- experimental_
 
 .. _MacroPy:  http://macropy3.readthedocs.io/en/latest/
 .. _future-fstrings: https://github.com/asottile/future-fstrings
+.. _experimental: https://github.com/aroberge/experimental
