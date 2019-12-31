@@ -16,12 +16,12 @@ Overview
       - | |version| |wheel| |supported-versions| |supported-implementations|
         | |commits-since|
 
-.. |docs| image:: https://readthedocs.org/projects/syntactic/badge
+.. |docs| image:: https://img.shields.io/readthedocs/syntactic
     :target: https://readthedocs.org/projects/syntactic
     :alt: Documentation Status
 
 
-.. |travis| image:: https://travis-ci.com/metatooling/syntactic.svg
+.. |travis| image:: https://img.shields.io/travis/com/metatooling/python-syntactic
     :alt: Travis-CI Build Status
     :target: https://travis-ci.com/metatooling/syntactic
 
