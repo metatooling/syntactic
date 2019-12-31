@@ -79,7 +79,11 @@ Unicode lambdas
 
     func = λx: x + 1
 
-    assert func(1) == 2
+is equivalent to
+
+.. code-block:: python
+
+    func = lambda x: x + 1
 
 SQL template literals
 ------------------------
