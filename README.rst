@@ -75,13 +75,33 @@ Unicode lambdas
 
 .. code-block:: python
 
-    # coding: syntactic
-
     from __syntax__ import unicode_lambda
 
     func = λx: x + 1
 
     assert func(1) == 2
+
+SQL template literals
+------------------------
+
+Embedded sql: ::
+
+  from __syntax__ import sql_literals
+
+  engine.query(sql`SELECT author FROM books WHERE name = {book} AND author = {author}`)
+
+is equivalent to:
+
+.. code-block:: python
+
+    engine.query('SELECT author FROM books WHERE name = ? AND author = ?', [book, author])
+
+
+Limitations
+===============
+
+The example transformers are written in a fragile way. They are only intended as
+inspiration rather than production-ready transformers.
 
 
 
