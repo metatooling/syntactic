@@ -8,7 +8,7 @@ env:
     - SEGFAULT_SIGNALS=all
   matrix:
     - TOXENV=coverage
-    - TOXENV=check
+    # - TOXENV=check
     - TOXENV=doc
 matrix:
   include:
