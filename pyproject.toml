@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "syntactic"
 version = "0.1.0" # PACKAGE_VERSION  (This comment helps bumpversion find the right line.)
-description = ""
+description = "Custom syntax for Python."
 authors = ["Metatooling <metatooling@cordaz.com>"]
 readme = "README.rst"
 
