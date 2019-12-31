@@ -12,9 +12,8 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.6"
 click = "7.0"
-attrs = "^19.1.0"
 importlib_metadata = "*"
 
 
@@ -48,6 +47,10 @@ docs = [
     "marshmallow-jsonschema",
     "sphinx-jsonschema",
 
+]
+
+cli = [
+    "click",
 ]
 
 
