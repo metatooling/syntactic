@@ -64,6 +64,8 @@ def decode(b, errors="strict"):
 
 
 class IncrementalDecoder(codecs.BufferedIncrementalDecoder):
+    """A buffered incremental decoder for custom syntax."""
+
     def _buffer_decode(self, input, errors, final):  # pragma: no cover
         if final:
             return decode(input, errors)
@@ -107,4 +109,5 @@ codec_map = {
 
 
 def main():
+    """Register the codec with Python."""
     codecs.register(codec_map.get)

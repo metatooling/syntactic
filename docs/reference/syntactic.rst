@@ -1,9 +1,30 @@
-syntactic
-=========
+syntactic package
+=================
 
-.. testsetup::
+Submodules
+----------
 
-    from syntactic import *
+syntactic.app module
+--------------------
+
+.. automodule:: syntactic.app
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+syntactic.cli module
+--------------------
+
+.. automodule:: syntactic.cli
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Module contents
+---------------
 
 .. automodule:: syntactic
-    :members:
+   :members:
+   :undoc-members:
+   :show-inheritance:
