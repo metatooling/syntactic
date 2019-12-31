@@ -112,6 +112,8 @@ production-ready ones, please open an issue to discuss.
 Related work
 ===================
 
+Several projects have explored manipulating Python syntax.
+
 - MacroPy_
 - future-fstrings_
 - experimental_
