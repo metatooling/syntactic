@@ -39,7 +39,7 @@ default_context:
     project_name:              'syntactic'
     project_short_description: 'An example package. Generated with cookiecutter-pylibrary.'
     release_date:              'today'
-    repo_name:                 'python-syntactic'
+    repo_name:                 'syntactic'
     requiresio:                'no'
     scrutinizer:               'no'
     sphinx_docs:               'yes'
