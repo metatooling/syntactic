@@ -8,7 +8,7 @@ env:
   matrix:
     - TOXENV=coverage
     - TOXENV=check
-    - TOXENV=docs
+    - TOXENV=doc
 matrix:
   include:
     - python: '3.6'
