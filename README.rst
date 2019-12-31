@@ -52,10 +52,19 @@ Overview
 
 .. end-badges
 
-Customizable syntax for Python.
-
 
 https://syntactic.readthedocs.io/
+
+Customizable syntax for Python.
+
+Possible uses
+==================
+
+- Experimenting with possible language features.
+- Boilerplate reduction.
+
+
+
 
 
 Examples
@@ -70,6 +79,18 @@ Unicode lambdas
 
     from __syntax__ import unicode_lambda
 
-    func = λ x: x + 1
+    func = λx: x + 1
 
     assert func(1) == 2
+
+
+
+
+Related work
+===================
+
+- MacroPy_
+- future-fstrings_
+
+.. _MacroPy:  http://macropy3.readthedocs.io/en/latest/
+.. _future-fstrings: https://github.com/asottile/future-fstrings
