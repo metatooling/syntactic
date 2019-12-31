@@ -20,6 +20,14 @@ syntactic.cli module
    :undoc-members:
    :show-inheritance:
 
+syntactic.examples module
+-------------------------
+
+.. automodule:: syntactic.examples
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 Module contents
 ---------------

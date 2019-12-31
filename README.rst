@@ -52,8 +52,24 @@ Overview
 
 .. end-badges
 
-Custom syntax for Python.
-
+Customizable syntax for Python.
 
 
 https://syntactic.readthedocs.io/
+
+
+Examples
+==========
+
+Unicode lambdas
+-------------------
+
+.. code-block:: python
+
+    # coding: syntactic
+
+    from __syntax__ import unicode_lambda
+
+    func = λ x: x + 1
+
+    assert func(1) == 2
