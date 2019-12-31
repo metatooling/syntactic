@@ -3,7 +3,7 @@ Usage
 =====
 
 
-Creating a new custom syntax
+Create a new custom syntax
 ==============================
 
 
@@ -51,8 +51,8 @@ Update your ``pyproject.toml`` to include the entry point.
 
 
 
-Using custom syntax
-=======================
+Use a custom syntax
+===============================
 
 1. Install a module that provides a custom syntax plugin.
 
@@ -90,3 +90,14 @@ Using custom syntax
      1
      hello
      2
+
+
+
+View transformed syntax
+=========================
+
+View the expanded form of a Python file by using the optional command-line tool.
+
+1. Ensure Syntactic's` ``cli`` extra is installed.
+
+2. Use ``python -m syntactic show file.py``.
