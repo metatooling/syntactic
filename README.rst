@@ -52,9 +52,7 @@ Overview
 
 .. end-badges
 
-An example package. Generated with cookiecutter-pylibrary.
-
-* Free software: MIT License
+Custom syntax for Python.
 
 
 
