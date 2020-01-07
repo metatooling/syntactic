@@ -20,8 +20,7 @@ Overview
     :target: https://readthedocs.org/projects/syntactic
     :alt: Documentation Status
 
-
-.. |travis| image:: https://img.shields.io/travis/com/metatooling/python-syntactic
+.. |travis| image:: https://img.shields.io/travis/com/metatooling/syntactic
     :alt: Travis-CI Build Status
     :target: https://travis-ci.com/metatooling/syntactic
 
