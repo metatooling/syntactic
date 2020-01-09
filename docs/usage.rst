@@ -15,47 +15,12 @@ Create a function that takes the original unicode source string and returns a ne
 
     .. code-block:: python
 
-        def convert_unicode_lambda(source: str) -> str:
+        def unicode_lambdas(source: str) -> str:
             """Convert unicode lambdas into regular lambdas."""
             return source.replace("λ", "lambda ")
 
 
-2. Make a plugin
-------------------------
-
-
-Make a plugin so ``syntactic`` can find your function.
-
-
-... if you're using setuptools
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Update your ``setup.py`` to include the plugin entry point.
-
-.. code-block:: python
-
-    setuptools.setup(
-        ...,
-        entry_points={
-            "syntactic.transformers": [
-                "unicode_lambda = my_package.my_module:convert_unicode_lambda"
-            ]
-        },
-    )
-
-
-
-... if you're using Poetry
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Update your ``pyproject.toml`` to include the entry point.
-
-.. code-block:: toml
-
-    [tool.poetry.plugins."syntactic.transformers"]
-    unicode_lambda = "my_package.my_module:convert_unicode_lambda"
-
-
+2. Put that function in a module named ``__syntax__.py``. It may be in a package.
 
 
 Use a custom syntax
@@ -78,14 +43,20 @@ Use a custom syntax
 
    .. code-block:: python
 
-       from __syntax__ import unicode_lambda
+       from __syntax__ import unicode_lambdas
 
+
+If the module is in a package, namespace the import as normal. For example:
+
+.. code-block:: python
+
+    from syntactic.examples.__syntax__ import unicode_lambdas
 
 4. Write code using the custom syntax. The full module should look like this: ::
 
     # coding: syntactic
 
-    from __syntax__ import unicode_lambda
+    from __syntax__ import unicode_lambdas
 
     add_one = λx: x+1
 

@@ -16,50 +16,37 @@ UTF8 = encodings.search_function("utf8")
 MAGIC_PACKAGE_NAME = "__syntax__"
 
 
-def get_transformer_names(source: str) -> t.List[str]:
-    """Return the names of requested transformers.
+def get_transformer_pairs(source: str) -> t.List[t.Tuple[str, str]]:
+    """Return the module and function names of requested transformers.
 
     Searches for ``from __syntax__ import ...``.
 
     """
-    module_names: t.List[str] = []
+    module_function_pairs: t.List[t.Tuple[str, str]] = []
     for line in source.splitlines():
-
         match = re.fullmatch(
-            fr"\s*from\s+{MAGIC_PACKAGE_NAME}\s+import\s+(\w+)\s*", line
+            fr"from\s+([\w\s.]+{MAGIC_PACKAGE_NAME})\s+import\s+(\w.*?)$", line
         )
         if match:
-            module_names.extend(match.groups())
+            module_name = match.group(1)
+            function_names = [name.strip() for name in match.group(2).split(",")]
+            for function_name in function_names:
+                module_function_pairs.append((module_name, function_name))
 
-    return module_names
-
-
-@functools.lru_cache(None)
-def gather_transformers():
-    """Gather transformers from plugins."""
-
-    transformers: t.Dict[str, t.Callable[[str], str]] = {}
-    entry_points = importlib_metadata.entry_points()["syntactic.transformers"]
-
-    for entry_point in entry_points:
-        module_name, _, name_in_module = entry_point.value.partition(":")
-
-        module = importlib.import_module(module_name)
-        transformers[entry_point.name.strip()] = getattr(module, name_in_module)
-
-    return transformers
+    return module_function_pairs
 
 
 def decode(source_bytes: bytes, errors="strict"):
     """Decode the utf-8 input and transform it with the named transformers."""
-    transformers = gather_transformers()
 
     source, length = UTF8.decode(source_bytes, errors)
-    transformer_names = get_transformer_names(source)
+    transformer_pairs = get_transformer_pairs(source)
 
-    for transformer_name in transformer_names:
+    for module_name, function_name in transformer_pairs:
+        module = importlib.import_module(module_name)
+        function = getattr(module, function_name)
+        source = function(source)
 
-        source = transformers[transformer_name](source)
     return source, length
 
 

@@ -7,20 +7,14 @@ import tests.helpers
 
 
 @pytest.mark.parametrize(
-    "filename,expected", [("bangbang.py", "2\nhello\n4\n"), ("lambdas.py", "1\n")]
+    ["path"],
+    (
+        (path,)
+        for path in tests.helpers.PROJECT_DIR.joinpath("docs/examples/").rglob("*.py")
+    ),
 )
-def test_bangbang(virtualenv, filename, expected):
-    """The bangbang script turns !! into a print() call."""
-    subprocess.check_call(
-        [virtualenv.python, "-m", "pip", "install", str(tests.helpers.PROJECT_DIR)]
-    )
-
-    output = subprocess.check_output(
-        [
-            virtualenv.python,
-            str(
-                tests.helpers.PROJECT_DIR.joinpath("tests/examples/").joinpath(filename)
-            ),
-        ]
-    ).decode()
+def test_example(virtualenv, path):
+    """After tranforming the syntax, Python gives the expected results on stdout."""
+    expected = tests.helpers.parse_expected(path)
+    output = subprocess.check_output([str(virtualenv.python), str(path)]).decode()
     assert output == expected

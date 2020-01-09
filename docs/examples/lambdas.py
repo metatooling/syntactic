@@ -2,7 +2,10 @@
 
 from syntactic.examples.__syntax__ import unicode_lambdas
 
-func = λ:1
 
+increment = λx: x+1
 
-print(func())
+print(increment(1))
+
+# ---
+# 2

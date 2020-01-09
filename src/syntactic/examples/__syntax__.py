@@ -13,14 +13,14 @@
 import re
 
 
-def transform_bangbang(source: str) -> str:
+def bangbang_greeting(source: str) -> str:
     """Replace !! with a greeting."""
     return source.replace("!!", 'print("hello")')
 
 
-def transform_lambda(source: str) -> str:
+def unicode_lambdas(source: str) -> str:
     """Replace unicode lambda."""
-    return source.replace("λ", "lambda")
+    return source.replace("λ", "lambda ")
 
 
 def transform_sql_literals(source: str) -> str:
