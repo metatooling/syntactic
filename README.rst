@@ -74,15 +74,15 @@ Unicode lambdas
 
 .. code-block:: python
 
-    from __syntax__ import unicode_lambda
+    from __syntax__ import unicode_lambdas
 
-    func = λx: x + 1
+    increment = λx: x + 1
 
 is equivalent to
 
 .. code-block:: python
 
-    func = lambda x: x + 1
+    increment = lambda x: x + 1
 
 SQL template literals
 ------------------------
